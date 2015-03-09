@@ -1,0 +1,46 @@
+body {
+	padding-top: 50px;
+	
+}
+
+.starter-template {
+	text-align: center;
+	width:100%;
+}
+
+.container-fluid {
+	width:100%;
+	padding:0px 0px 0px 0px;
+}
+
+h1, h2, {
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 60px;
+    line-height: 70px;
+    text-shadow: 1px 1px 1px #ccc;
+}
+    
+h3 {
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size:45px;
+}
+
+h4 {
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    font-size: 35px;
+    line-height: 45px;
+}
+ 
+p, div {
+    font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+#statePlanResults {
+	display:none;
+}
+
+#container2{
+	display:none
+}
