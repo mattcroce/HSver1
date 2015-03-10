@@ -1,3 +1,6 @@
+
+<!DOCTYPE html>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,29 +24,29 @@
 	
 	<title>Follow The Sage</title>
 </head>
+
+<html>
 <body>
-<div class="container-fluid">
-<div class="starter-template">
-<div class="col-md-6 col-md-offset-3">
-<p>
-<?php	
-	
-	$userState=$_REQUEST['stateSubmit'];
-	print "You live in the following state: $userState<br>";
-	
-	$link = mysqli_connect("localhost", "risingre_example", "example1", "risingre_exampledb");
-	$query = "SELECT `fips`, `state`, `county` FROM `fips` WHERE `state` = '$userState'";
-	$result = mysqli_query($link, $query);
-	while ($row = mysqli_fetch_array($result)) {
-		echo $row['fips'] . ': ' . $row['state'] . ' ' . $row['county'];
-		echo '<br />';
-		}
-	
 
-?>
-</p>
-</div>
-</div>
-</div>
 
+	<div class="container-fluid">
+		<div class="starter-template">
+		<div class="col-md-6 col-md-offset-3">
+			<br/>
+			<div id="targetState">
+				<p> What state do you live in?
+				Enter your state's two-letter abbreviation.</p>
+				<br/>
+				<form method="post" role="form" id="stateForm" action="statesubmit.php">
+				<input type="text" name="stateSubmit" />
+				<input type="submit" name="submit" value="Submit"/>
+				</form>
+				
+			</div>
+			<br/>
+			<br/>
+		</div>
+		</div>
+	</div>
 </body>
+</html>
