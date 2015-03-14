@@ -26,21 +26,43 @@
 <div class="starter-template">
 <div class="col-md-6 col-md-offset-3">
 <p>
-<?php	
+
 	
+<?php
+
+	//$mysqli = new mysqli(localhost, root,
+	//root, HSver1);
+ 	//if (mysqli_connect_error()) {
+ 	//die('Connect Error (' . mysqli_connect_errno(). ') ' . mysqli_connect_error());
+ 	//}
+ 	//echo 'Connected successfully.';
+ 	//$mysqli->close();
+
 	$userState=$_REQUEST['stateSubmit'];
-	print "You live in the following state: $userState<br>";
-	
-	$link = mysqli_connect("localhost", "risingre_example", "example1", "risingre_exampledb");
-	$query = "SELECT `fips`, `state`, `county` FROM `fips` WHERE `state` = '$userState'";
+	$userCounty=$_REQUEST['countySubmit'];
+
+	print "You live in $userCounty, which is located in: $userState<br>";
+
+	echo "<table border='1' style='border-collapse: collapse;border-color: silver;'>";
+	echo "<tr style='font-weight: bold;'>";
+	echo "<td width='100' align='center'>State</td><td width='100' align='center'>Unique Plan Ids</td>";
+	echo "</tr>";
+
+ 	$link = mysqli_connect("localhost", "root", "root", "HSver1");
+ 	$query = "SELECT `StateCode`, COUNT(DISTINCT (StandardComponentId))  FROM `plan_attributes` WHERE `StateCode` = '$userState'";
+ 			//SELECT `County`, `ServiceAreaiId` FROM `service_area` WHERE `fips` = `County`;
+			//"SELECT `serviceareaid` from `plan_attributes` WHERE `serviceareaid` FROM `service_area` = `serviceareaid` AS user_serviceareaid`";
 	$result = mysqli_query($link, $query);
 	while ($row = mysqli_fetch_array($result)) {
-		echo $row['fips'] . ': ' . $row['state'] . ' ' . $row['county'];
-		echo '<br />';
-		}
-	
-
+	echo "<tr>";
+	echo "<td align='center' width='200'>" . $row['StateCode'] . "</td>";
+	echo "<td align='center' width='200'>" . $row['COUNT(DISTINCT (StandardComponentId))'] . "</td>";
+	echo "</tr>";  
+	} 
+	echo "</table>";
 ?>
+
+
 </p>
 </div>
 </div>

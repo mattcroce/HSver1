@@ -34,11 +34,11 @@
 		<div class="col-md-6 col-md-offset-3">
 			<br/>
 			<div id="targetState">
-				<p> What state do you live in?
-				Enter your state's two-letter abbreviation.</p>
+				<p> What state and county do you live in?</p>
 				<br/>
 				<form method="post" role="form" id="stateForm" action="statesubmit.php">
-				<input type="text" name="stateSubmit" />
+				<input type="text" name="stateSubmit" placeholder="Enter your two-letter state abbreviation"/>
+				<input type="text" name="countySubmit" placeholder="Enter your county"/>
 				<input type="submit" name="submit" value="Submit"/>
 				</form>
 				
