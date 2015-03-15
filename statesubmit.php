@@ -40,22 +40,24 @@
 
 	$userState=$_REQUEST['stateSubmit'];
 	$userCounty=$_REQUEST['countySubmit'];
+	$userBenefit=$_REQUEST['benefitSubmit'];
 
 	print "You live in $userCounty, which is located in: $userState<br>";
 
 	echo "<table border='1' style='border-collapse: collapse;border-color: silver;'>";
 	echo "<tr style='font-weight: bold;'>";
-	echo "<td width='100' align='center'>State</td><td width='100' align='center'>Unique Plan Ids</td>";
+	echo "<td width='100' align='center'>Unique Plan Ids</td>";
 	echo "</tr>";
 
- 	$link = mysqli_connect("localhost", "root", "root", "HSver1");
- 	$query = "SELECT `StateCode`, COUNT(DISTINCT (StandardComponentId))  FROM `plan_attributes` WHERE `StateCode` = '$userState'";
+ 	$link = mysqli_connect("localhost", "risingre_example", "example1", "risingre_exampledb");
+ 	
+ 	$query = "SELECT COUNT(DISTINCT (StandardComponentId))  FROM `benefitsCostSharing` WHERE `StateCode` = '$userState'";
  			//SELECT `County`, `ServiceAreaiId` FROM `service_area` WHERE `fips` = `County`;
 			//"SELECT `serviceareaid` from `plan_attributes` WHERE `serviceareaid` FROM `service_area` = `serviceareaid` AS user_serviceareaid`";
+			
 	$result = mysqli_query($link, $query);
 	while ($row = mysqli_fetch_array($result)) {
 	echo "<tr>";
-	echo "<td align='center' width='200'>" . $row['StateCode'] . "</td>";
 	echo "<td align='center' width='200'>" . $row['COUNT(DISTINCT (StandardComponentId))'] . "</td>";
 	echo "</tr>";  
 	} 
