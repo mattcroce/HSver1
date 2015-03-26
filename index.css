@@ -1,16 +1,16 @@
 body {
-	padding-top: 50px;
-	
+    padding-top: 50px;
+    
 }
 
 .starter-template {
-	text-align: center;
-	width:100%;
+    text-align: center;
+    width:100%;
 }
 
 .container-fluid {
-	width:100%;
-	padding:0px 0px 0px 0px;
+    width:100%;
+    padding:0px 0px 0px 0px;
 }
 
 h1, h2, {
@@ -37,10 +37,10 @@ p, div {
     line-height: 25px;
 }
 
-#statePlanResults {
-	display:none;
+#planInfo {
+    display:none;
+}
+#numConfirm {
+    display:none;
 }
 
-#container2{
-	display:none
-}
