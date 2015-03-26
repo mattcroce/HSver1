@@ -34,12 +34,24 @@
 		<div class="starter-template">
 		<div class="col-md-6 col-md-offset-3">
 			<br/>
-			<div id="howManyPlans">
-				<label for "howManyPlans"> How many plans would you like to compare? </label>
-				<input type="text" name="howManyPlans" id="planNum" value ="" size="15" placeholder="Enter a number"/>
-				</br></br>
-				<input type="submit" id="howManySubmit" name="howManySubmit" value="Submit"/>
+			<div id="planCompareTable">
+				<table name="planCompare">
+					<tr>
+						<th>Plan Name</th>
+						<th>Bi-Weekly Premium</th>
+						<th>Annual Deductible</th>
+						<th>Catastrophic Limit</th>
+						<th>Copay Percentage</th>
+						<th>Coinsurance Percentage</th>
+						<th>HSA/FSA Contribution</th>
+					</tr>
+				</table>
 			</div>
+			<button name="newPlan"> Add a plan to your calculator </button>
+			</br></br>
+			<form method="post" name="submitPlans" id="submitPlans" action="savisky-model-2.php">
+			<input type="submit" name=plansDone" id="plansDone" value="I'm done - let's go!"/>
+			</form>
 		</div>
 		</div>
 	</div>
@@ -47,25 +59,12 @@
 	<div class="container-fluid">
 		<div class="starter-template">
 		<div class="col-md-6 col-md-offset-3">
-			<div id="planInfo">
-				<form method="post" role="form" id="planInfoForm">
-				<!-- <label for "premiumSubmit"> Bi-Weekly Premium: </label>
-				<input type="text" name="premiumSubmit" size="30" placeholder="Bi-weekly premium amount"/></br></br>
-				<label for "deductibleSubmit"> Annual Deductible: </label>
-				<input type="text" name="deductibleSubmit" size="30" placeholder="Annual deductible amount"/></br></br>
-				<label for "catastrophicLimit"> Catastrophic Limit: </label>
-				<input type="text" name="catastrophicLimitSubmit" size="30" placeholder="Annual catastrophic limit"/></br></br>
-				<label for "copayPercent"> Copay Percentage: </label>
-				<input type="text" name="copayPercentSubmit" size="30" placeholder="Copay percentage, if any"/></br></br>
-				<label for "coInsurePercent"> Coinsurance Percentage: </label>
-				<input type="text" name="coInsurePercentSubmit" size="30" placeholder="Coinsurance percentage, if any"/></br></br>
-				<label for "hsaFSAContrib"> HSA/FSA Employer Contribution: </label>
-				<input type="text" name="hsaFsaContribSubmit" size="43" placeholder="Employer's monthly contribution amount, if any"/></br></br>
-				<br/><br/> 
-				
-				<input type="submit" id="userSubmit" name="submit" value="Submit"/>  -->
-				</form>
-				
+			<div id="planDataSubmit">
+				</br></br>
+				<p> Ok - looks like we've got enough information to get started.</p>
+				<p> Whenever you're ready, click the "Submit" button to Follow The Sage.</p>
+				</br></br>					
+				<input type="submit" id="userSubmit" name="submit" value="Submit"/>				
 			</div>
 			<br/>
 			<br/>
@@ -74,65 +73,39 @@
 	</div>
 
 <script type="text/javascript" language="javascript">
-	$(document).ready(function() {
-		$('#howManySubmit').keypress(function(e) {
-		if(e.keyCode==13)
-		$('#howManySubmit').click();
-		});
-		});	
+	//$(document).ready(function() {
+	//	$('#addPlan').keypress(function(e) {
+	//	if(e.keyCode==13)
+	//	$('#addPlan').click();
+	//	});
+	//	});	
 	$(document).ready(function () {
-		$('#howManySubmit').click(function() {
-			var howMany=$('#planNum').val();
-			var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
-			if(jQuery.trim(howMany).length == 0) {
-				var errMsgBlank;
-				errMsgBlank = "Cannot be blank. Please enter a number.";
-				alert(errMsgBlank);
-			}
-			else if(!(numberRegex.test(howMany))) {
-				var errMsgNum;
-				errMsgNum = "Must be a number. Please enter a number.";
-				alert(errMsgNum);
-			}
-			else if((jQuery.trim(howMany).length > 0) && (numberRegex.test(howMany))) {
-				$("#howManyPlans").fadeOut( 'slow');
-			}//GOOD
-			document.write('<table border="1">');
-			for(i=0;i<howMany;i++){
-				document.write('<tr><td>' "Plan number: " + i '</td></tr>');
-			}
-
-				//$('<div id="planInfoSubmit" />').fadeIn('slow').appendTo('#planInfoForm');
-				//var newPremiumLabel=document.createElement("label");
-				//var premiumLabel=document.createTextNode("Bi-Weekly Premium: " + i);
-				//newPremiumLabel.appendChild(premiumLabel);
-				//document.getElementById("planInfoForm").appendChild(newPremiumLabel);
-				//$('<div><input type="text" id="premiumSubmit" class="field" name="premiumSubmit" value="" /></div>').fadeIn('slow').appendTo('#planInfoSubmit');
-				//$('<div><br/><br/></div>').fadeIn('slow').appendTo('#premiumSubmit');
-			//	}
-			//	$('<div><input name="premiumSubmit" type="button" id="premiumSubmit" class="submit" value="Submit" /></div>').fadeIn('slow').appendTo('#planInfo');
-			//$("#planInfo").delay( 800 ).fadeIn( 'slow');//GOOD
-			//$('#tickSub').click (function() {
-			//	$("#container2").fadeOut('slow');//GOOD
-			//	var answers = [];
-			//	$.each($('.field'),function() {
-			//		answers.push($(this).val());
-			//	});
-			//	if(answers.length == 0) {
-			//		answers="none";
-			//	}
-			//	var numAns = answers.length;
-
-			//	for(i=0;i<inp;i++) {
-			//	$.each(answers, function(index, value) {
-			//		alert(value);
-			//	});
-			//	return false;
-			//	}
-		});		
+		$('button[name="newPlan"]').on('click', function(){
+			var table = $('table[name="planCompare"]');
+			var tdPlanName = $('<input />', {'class' : 'form-control formInput', 'type': 'text'});
+			var tdPremium = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdDeductible = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdCatLim = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdCopay = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdCoinsure = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdHsaFsa = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			
+			newRow(table,[tdPlanName,tdPremium,tdDeductible,tdCatLim, tdCopay, tdCoinsure, tdHsaFsa]);
+			});
 			});
 			
-
+		function newRow($table,cols){
+			$row = $('<tr/>');
+			for(i=0; i<cols.length; i++){
+				$col = $('<td/>');
+				$col.append(cols[i]);
+				$row.append($col);
+				}
+			$table.append($row);
+		}
+		
+		
+						
 </script>	
 
 
