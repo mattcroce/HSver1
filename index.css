@@ -40,7 +40,8 @@ p, div {
 #planInfo {
     display:none;
 }
-#numConfirm {
-    display:none;
+
+#planCompareTable {
+    display: none;
 }
 
