@@ -21,6 +21,32 @@
 		     
 	<link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      function drawVisualization() {
+  // Create and populate the data table.
+  var data = google.visualization.arrayToDataTable([
+    ['Plan Name', 'Premium', 'OOP Spending'],
+    ['UPMC Catastrophic',  3358.56,    500],
+    ['UPMC Advantage Bronze',  3892.56,    500],
+    ['UPMC Advantage Silver',  4358.88,    500]
+  ]);
+
+  // Create and draw the visualization.
+  new google.visualization.ColumnChart(document.getElementById('chart_div')).
+      draw(data,
+           {title:"Annual Healthcare Spending by Plan",
+            width:600, height:400,
+            vAxis: {title: "Dollars"}, isStacked: true,
+            hAxis: {title: "Plan Name"}}
+      );
+}
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawVisualization);
+
+    </script>
 	
 	<link rel="stylesheet" type="text/css" href="index.css">
 	
@@ -30,109 +56,120 @@
 
 <body>
 
-	<div class="container-fluid">
+<!--	<div class="container-fluid">
 		<div class="starter-template">
 		<div class="col-md-6 col-md-offset-3">
 			<br/>
-			<div id="howManyPlans">
-				<label for "howManyPlans"> How many plans would you like to compare? </label>
-				<input type="text" name="howManyPlans" id="planNum" value ="" size="15" placeholder="Enter a number"/>
-				</br></br>
-				<input type="submit" id="howManySubmit" name="howManySubmit" value="Submit"/>
+			<div id="planCompareTable">
+				<table name="planCompare">
+					<tr>
+						<th>Plan Name</th>
+						<th>Bi-Weekly Premium</th>
+						<th>Annual Deductible</th>
+						<th>Catastrophic Limit</th>
+						<th>Copay Percentage</th>
+						<th>Coinsurance Percentage</th>
+						<th>HSA/FSA Contribution</th>
+					</tr>
+				</table>
+			
+			<button name="newPlan"> Add a plan to your calculator </button>
+			</br></br>
+			<button name="submitPlans"> Follow The Sage! </button>
+			</form>
 			</div>
 		</div>
 		</div>
-	</div>
+	</div> -->
 	
 	<div class="container-fluid">
 		<div class="starter-template">
 		<div class="col-md-6 col-md-offset-3">
-			<div id="planInfo">
-				<form method="post" role="form" id="planInfoForm">
-				<!-- <label for "premiumSubmit"> Bi-Weekly Premium: </label>
-				<input type="text" name="premiumSubmit" size="30" placeholder="Bi-weekly premium amount"/></br></br>
-				<label for "deductibleSubmit"> Annual Deductible: </label>
-				<input type="text" name="deductibleSubmit" size="30" placeholder="Annual deductible amount"/></br></br>
-				<label for "catastrophicLimit"> Catastrophic Limit: </label>
-				<input type="text" name="catastrophicLimitSubmit" size="30" placeholder="Annual catastrophic limit"/></br></br>
-				<label for "copayPercent"> Copay Percentage: </label>
-				<input type="text" name="copayPercentSubmit" size="30" placeholder="Copay percentage, if any"/></br></br>
-				<label for "coInsurePercent"> Coinsurance Percentage: </label>
-				<input type="text" name="coInsurePercentSubmit" size="30" placeholder="Coinsurance percentage, if any"/></br></br>
-				<label for "hsaFSAContrib"> HSA/FSA Employer Contribution: </label>
-				<input type="text" name="hsaFsaContribSubmit" size="43" placeholder="Employer's monthly contribution amount, if any"/></br></br>
-				<br/><br/> 
-				
-				<input type="submit" id="userSubmit" name="submit" value="Submit"/>  -->
-				</form>
-				
+			<div id="planDataSubmit">
+				</br></br>
+				<p> Tell us how much you think you might spend on healthcare this year, not including your insurance premiums:</p></br>
+				<input type="textbox" name="medSpend" id="medSpend"/>
+				</br></br>					
+				<button id="medSpendSubmit" name="medSpendSubmit"> Submit </button>				
 			</div>
 			<br/>
 			<br/>
 		</div>
 		</div>
 	</div>
-
+	
+	<div id="chart_div"></div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" language="javascript">
-	$(document).ready(function() {
-		$('#howManySubmit').keypress(function(e) {
-		if(e.keyCode==13)
-		$('#howManySubmit').click();
-		});
-		});	
-	$(document).ready(function () {
-		$('#howManySubmit').click(function() {
-			var howMany=$('#planNum').val();
-			var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
-			if(jQuery.trim(howMany).length == 0) {
-				var errMsgBlank;
-				errMsgBlank = "Cannot be blank. Please enter a number.";
-				alert(errMsgBlank);
-			}
-			else if(!(numberRegex.test(howMany))) {
-				var errMsgNum;
-				errMsgNum = "Must be a number. Please enter a number.";
-				alert(errMsgNum);
-			}
-			else if((jQuery.trim(howMany).length > 0) && (numberRegex.test(howMany))) {
-				$("#howManyPlans").fadeOut( 'slow');
-			}//GOOD
-			document.write('<table border="1">');
-			for(i=0;i<howMany;i++){
-				document.write('<tr><td>' "Plan number: " + i '</td></tr>');
-			}
-
-				//$('<div id="planInfoSubmit" />').fadeIn('slow').appendTo('#planInfoForm');
-				//var newPremiumLabel=document.createElement("label");
-				//var premiumLabel=document.createTextNode("Bi-Weekly Premium: " + i);
-				//newPremiumLabel.appendChild(premiumLabel);
-				//document.getElementById("planInfoForm").appendChild(newPremiumLabel);
-				//$('<div><input type="text" id="premiumSubmit" class="field" name="premiumSubmit" value="" /></div>').fadeIn('slow').appendTo('#planInfoSubmit');
-				//$('<div><br/><br/></div>').fadeIn('slow').appendTo('#premiumSubmit');
-			//	}
-			//	$('<div><input name="premiumSubmit" type="button" id="premiumSubmit" class="submit" value="Submit" /></div>').fadeIn('slow').appendTo('#planInfo');
-			//$("#planInfo").delay( 800 ).fadeIn( 'slow');//GOOD
-			//$('#tickSub').click (function() {
-			//	$("#container2").fadeOut('slow');//GOOD
-			//	var answers = [];
-			//	$.each($('.field'),function() {
-			//		answers.push($(this).val());
-			//	});
-			//	if(answers.length == 0) {
-			//		answers="none";
-			//	}
-			//	var numAns = answers.length;
-
-			//	for(i=0;i<inp;i++) {
-			//	$.each(answers, function(index, value) {
-			//		alert(value);
-			//	});
-			//	return false;
-			//	}
-		});		
-			});
+	//$(document).ready(function () {
+	//	$('button[name="newPlan"]').on('click', function(){
+	//		var table = $('table[name="planCompare"]');
+	//		var tdPlanName = $('<input />', {'class' : 'form-control formInput', 'type': 'text'});
+	//		var tdPremium = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+	//		var tdDeductible = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+	//		var tdCatLim = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+	//		var tdCopay = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+	//		var tdCoinsure = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+	//		var tdHsaFsa = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+	//		
+	//		newRow(table,[tdPlanName,tdPremium,tdDeductible,tdCatLim, tdCopay, tdCoinsure, tdHsaFsa]);
+	//		});
+	//		});
 			
+	//function newRow($table,cols){
+	//	$row = $('<tr/>');
+	//	for(i=0; i<cols.length; i++){
+	//		$col = $('<td/>');
+	//		$col.append(cols[i]);
+	//		$row.append($col);
+	//		}
+	//	$table.append($row);
+	//}
+		
+	$(document).ready(function(){
+		$('#medSpend').keypress(function(e){
+        if(e.keyCode==13)
+        $('#medSpendSubmit').click();
+    	});
+    	});
+    
+    $("button#medSpendSubmit").click(function() {
+        var inp = $('#medSpend').val();
+        var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+        if(jQuery.trim(inp).length == 0) {
+          var errMsgBlank
+          errMsgBlank = "Cannot be blank. Please enter a number.";
+          alert(errMsgBlank);
+        } 
+        else if(!(numberRegex.test(inp))) {
+          var errMsgNum
+          errMsgNum = "Must be a number. Please enter a number.";
+          alert(errMsgNum);
+        }
+        else if((jQuery.trim(inp).length > 0) && (numberRegex.test(inp))) {
+		var data = google.visualization.arrayToDataTable([
+    ['Plan Name', 'Premium', 'OOP Spending'],
+    ['UPMC Catastrophic',  3358.56,    parseInt($("#medSpend").val())],
+    ['UPMC Advantage Bronze',  3892.56,    parseInt($("#medSpend").val())],
+    ['UPMC Advantage Silver',  4358.88,    parseInt($("#medSpend").val())]
+  ]);
 
+  // Create and draw the visualization.
+  new google.visualization.ColumnChart(document.getElementById('chart_div')).
+      draw(data,
+           {title:"Annual Healthcare Spending by Plan",
+            width:600, height:400,
+            vAxis: {title: "Dollars"}, isStacked: true,
+            hAxis: {title: "Plan Name"}}
+      );
+      $('#medSpend').val('');
+	}
+	});
+
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawVisualization);
+						
 </script>	
 
 
