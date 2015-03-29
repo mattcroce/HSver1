@@ -28,9 +28,9 @@
   // Create and populate the data table.
   var data = google.visualization.arrayToDataTable([
     ['Plan Name', 'Premium', 'OOP Spending'],
-    ['UPMC Catastrophic',  3358.56,    500],
-    ['UPMC Advantage Bronze',  3892.56,    500],
-    ['UPMC Advantage Silver',  4358.88,    500]
+    ['Example Plan #1',  3000,    500],
+    ['Example Plan #2',  5000,    500],
+    ['Example Plan #3',  7000,    500]
   ]);
 
   // Create and draw the visualization.
@@ -56,12 +56,13 @@ google.setOnLoadCallback(drawVisualization);
 
 <body>
 
-<!--	<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="starter-template">
 		<div class="col-md-6 col-md-offset-3">
 			<br/>
 			<div id="planCompareTable">
 				<table name="planCompare">
+					<tbody id="tdPlans">
 					<tr>
 						<th>Plan Name</th>
 						<th>Bi-Weekly Premium</th>
@@ -70,17 +71,18 @@ google.setOnLoadCallback(drawVisualization);
 						<th>Copay Percentage</th>
 						<th>Coinsurance Percentage</th>
 						<th>HSA/FSA Contribution</th>
+					</tbody>
 					</tr>
 				</table>
 			
 			<button name="newPlan"> Add a plan to your calculator </button>
 			</br></br>
-			<button name="submitPlans"> Follow The Sage! </button>
+			<button id="submitPlans"> Follow The Sage! </button>
 			</form>
 			</div>
 		</div>
 		</div>
-	</div> -->
+	</div> 
 	
 	<div class="container-fluid">
 		<div class="starter-template">
@@ -102,31 +104,38 @@ google.setOnLoadCallback(drawVisualization);
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" language="javascript">
-	//$(document).ready(function () {
-	//	$('button[name="newPlan"]').on('click', function(){
-	//		var table = $('table[name="planCompare"]');
-	//		var tdPlanName = $('<input />', {'class' : 'form-control formInput', 'type': 'text'});
-	//		var tdPremium = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-	//		var tdDeductible = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-	//		var tdCatLim = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-	//		var tdCopay = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-	//		var tdCoinsure = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-	//		var tdHsaFsa = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-	//		
-	//		newRow(table,[tdPlanName,tdPremium,tdDeductible,tdCatLim, tdCopay, tdCoinsure, tdHsaFsa]);
-	//		});
-	//		});
+	$(document).ready(function () {
+		$('button[name="newPlan"]').on('click', function(){
+			var table = $('table[name="planCompare"]');
+			var tdPlanName = $('<input />', {'class' : 'form-control formInput', 'type' : 'text', 'id' : 'tdPlanNameVal'});
+			var tdPremium = $('<input />', {'class' : 'form-control formInput', 'type' : 'text', 'id' : 'tdPremiumVal'});
+			var tdDeductible = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdCatLim = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdCopay = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdCoinsure = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+			var tdHsaFsa = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
+
 			
-	//function newRow($table,cols){
-	//	$row = $('<tr/>');
-	//	for(i=0; i<cols.length; i++){
-	//		$col = $('<td/>');
-	//		$col.append(cols[i]);
-	//		$row.append($col);
-	//		}
-	//	$table.append($row);
-	//} 
+			newRow(table,[tdPlanName, tdPremium, tdDeductible, tdCatLim, tdCopay, tdCoinsure, tdHsaFsa]);
 		
+	
+			
+	function newRow($table,cols){
+		$row = $('<tr/>');
+		for(i=0; i<cols.length; i++){
+			$col = $('<td/>');
+			$col.append(cols[i]);
+			$row.append($col);
+			}
+		$table.append($row);
+	
+	$("button#submitPlans").click(function(){
+		var rowCount=$('#tdPlans').children('tr').length;
+		var planName=$('#tdPlanNameVal').val();
+	});
+};
+});
+});
 	$(document).ready(function(){
 		$('#medSpend').keypress(function(e){
         if(e.keyCode==13)
@@ -150,7 +159,7 @@ google.setOnLoadCallback(drawVisualization);
         else if((jQuery.trim(inp).length > 0) && (numberRegex.test(inp))) {
 		var data = google.visualization.arrayToDataTable([
     ['Plan Name', 'Premium', 'OOP Spending'],
-    ['UPMC Catastrophic',  3358.56,    parseInt($("#medSpend").val())],
+    [$('#tdPlanNameVal').val(),  parseInt($('#tdPremiumVal').val()),    parseInt($("#medSpend").val())],
     ['UPMC Advantage Bronze',  3892.56,    parseInt($("#medSpend").val())],
     ['UPMC Advantage Silver',  4358.88,    parseInt($("#medSpend").val())]
   ]);
@@ -166,6 +175,7 @@ google.setOnLoadCallback(drawVisualization);
       $('#medSpend').val('');
 	}
 	});
+
 
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawVisualization);
