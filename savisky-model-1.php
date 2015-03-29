@@ -125,7 +125,7 @@ google.setOnLoadCallback(drawVisualization);
 	//		$row.append($col);
 	//		}
 	//	$table.append($row);
-	//}
+	//} 
 		
 	$(document).ready(function(){
 		$('#medSpend').keypress(function(e){
