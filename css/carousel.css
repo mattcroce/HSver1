@@ -49,16 +49,20 @@ body {
 }
 
 /* Declare heights because of positioning of img element */
+/*controls carousel background color*/
 .carousel .item {
   height: 500px;
   background-color: #777;
 }
 .carousel-inner > .item > img {
-  position: absolute;
+  /*position: absolute;*/
   top: 0;
   left: 0;
-  min-width: 100%;
+  min-width: 75%;
   height: 500px;
+  /* taking out position:absolute and replacing with the margin method of centering to exeperiment.*/
+  margin-right: auto;
+  margin-left: auto;
 }
 
 

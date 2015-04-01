@@ -3045,10 +3045,11 @@ fieldset[disabled] .btn {
           box-shadow: none;
   opacity: .65;
 }
+/*controls small "container marketing" buttons*/
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: #fff;
+  background-color: #36B3A8;
+  border-color: transparent;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -3090,6 +3091,7 @@ fieldset[disabled] .btn-default.active {
   color: #fff;
   background-color: #333;
 }
+/*controls big carousel buttons*/
 .btn-primary {
   color: #fff;
   background-color: #36B3A8;
@@ -3101,9 +3103,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  color: #000000;
+  background-color: #e6e6e6;
+  border-color: #adadad;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -4499,52 +4501,67 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse {
   background-color: #36B3A8;
-  border-color: #36B3A8;
+  border-color: transparent;
 }
+/* controls the main banner "healthsage logo" colors*/
 .navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+  color: #fff;
+
 }
+/* controls the main banner "healthsage logo mouseover colors*/
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #fff;
+  color: #000000;
   background-color: transparent;
 }
+/* ? */
 .navbar-inverse .navbar-text {
   color: #9d9d9d;
 }
+
+/* controls the navbar text colors*/
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: #fff;
 }
+/* controls the navbar text mouseover colors*/
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
+  color: #000000;
+  background-color: transparent;
+}
+/* controls the active folder text colors. note two different colors for hover and focus. also order must be focus first, hover second*/
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus {
   color: #fff;
   background-color: transparent;
 }
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
-  color: #fff;
-  background-color: #080808;
+.navbar-inverse .navbar-nav > .active > a:hover {
+  color: #000000;
+  background-color: transparent;
 }
+
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
 .navbar-inverse .navbar-nav > .disabled > a:focus {
-  color: #444;
+  color: #9d9d9d;
   background-color: transparent;
 }
 .navbar-inverse .navbar-toggle {
   border-color: #333;
 }
+/*controls the folder icon*/
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-  background-color: #333;
+  background-color: transparent;
 }
+/*controls the lines in the folder icon*/
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #fff;
 }
+/*controls the line formed when you click on the folder icon*/
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #101010;
+  border-color: transparent;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
