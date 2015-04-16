@@ -82,6 +82,10 @@ body {
   margin-left: 10px;
 }
 
+.poop {
+  padding-top: 60px; }
+}
+
 
 /* Featurettes
 ------------------------- */
@@ -91,11 +95,12 @@ body {
 }
 
 /* Thin out the marketing headings */
-.featurette-heading {
+.featurette-heading { 
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
 }
+
 
 
 /* RESPONSIVE CSS
