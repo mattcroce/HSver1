@@ -89,14 +89,7 @@
         ['Example Plan #3',  7000,    500]
         ]);
 
-      // Create and draw the visualization.
-      new google.visualization.ColumnChart(document.getElementById('chart_div')).
-        draw(data,
-          {title:"Annual Healthcare Spending by Plan",
-          width:600, height:400,
-          vAxis: {title: "Dollars"}, isStacked: true,
-          hAxis: {title: "Plan Name"}}
-          );
+
 
         // Create a dashboard.
         var dashboard = new google.visualization.Dashboard(
@@ -116,6 +109,8 @@
           'chartType': 'ColumnChart',
           'containerId': 'chart_div',
           'options': {
+            'title': 'ANAL Healthcare Spending by Plan',
+            'vAxis': {title: "Dollars"}, isStacked: true,
             'width': 600,
             'height': 400,
             'pieSliceText': 'value',
@@ -205,7 +200,7 @@
                           
           <button name="newPlan"> Add a plan to your calculator </button>
           <br></br>
-          <button id="submitPlans"> Follow The Sage! </button>
+          <!--<button id="submitPlans"> Follow The Sage! </button>-->
                       
             <!--<div class="container-fluid">-->
             <!--<div class="starter-template">-->
@@ -245,10 +240,7 @@
                           }
                         $table.append($row);
                                   
-                      $("button#submitPlans").click(function(){
-                        var rowCount=$('#tdPlans').children('tr').length;
-                        var planName=$('#tdPlanNameVal').val();
-                        });
+
                         };
                         });
                         });
@@ -258,20 +250,25 @@
                           $('#medSpendSubmit').click();
                           });
                           });
+
+                      //$("button#medSpendSubmit").click(function() {
+                        //      alert("Btn 1 Clicked");
+                          //    }); 
                                     
                       $("button#medSpendSubmit").click(function() {
+                        alert("Btn 1 Clicked");
                         var inp = $('#medSpend').val();
                         var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
                           if(jQuery.trim(inp).length == 0) {
                           var errMsgBlank
                           errMsgBlank = "Cannot be blank. Please enter a number.";
                           alert(errMsgBlank);
-                          } 
+                          } //DON'T PUT A SEMI-COLON HERE 
                           else if(!(numberRegex.test(inp))) {
                             var errMsgNum
                             errMsgNum = "Must be a number. Please enter a number.";
                             alert(errMsgNum);
-                            }
+                            } //DON'T PUT A SEMI-COLON HERE 
                             else if((jQuery.trim(inp).length > 0) && (numberRegex.test(inp))) {
                               var data = google.visualization.arrayToDataTable([
                               ['Plan Name', 'Premium', 'OOP Spending'],
@@ -279,17 +276,29 @@
                               ['UPMC Advantage Bronze',  3892.56,    parseInt($("#medSpend").val())],
                               ['UPMC Advantage Silver',  4358.88,    parseInt($("#medSpend").val())]
                               ]);
-
-                      // Create and draw the visualization.
-                      new google.visualization.ColumnChart(document.getElementById('chart_div')).
-                      draw(data,
-                      {title:"Annual Healthcare Spending by Plan",
-                      width:600, height:400,
-                      vAxis: {title: "Dollars"}, isStacked: true,
-                      hAxis: {title: "Plan Name"}}
-                      );
-                      $('#medSpend').val('');
-                      }
+                              
+                                      // Create a chart, passing some options 
+                              var columnChart = new google.visualization.ChartWrapper({
+                                'chartType': 'ColumnChart',
+                                'containerId': 'chart_div',
+                                'options': {
+                                  'title': 'ANALOGOUS Healthcare Spending by Plan',
+                                  'vAxis': {title: "Dollars"}, isStacked: true,
+                                  'width': 600,
+                                  'height': 400,
+                                  'pieSliceText': 'value',
+                                  'legend': 'right'
+                                }
+                              });
+                              // Create and draw the visualization.
+                              //new google.visualization.ColumnChart(document.getElementById('chart_div')).
+                              //draw(data,
+                              //{title:"Annual Healthcare Spending by Plan",
+                              //width:600, height:400,
+                              //vAxis: {title: "Dollars"}, isStacked: true,
+                              //hAxis: {title: "poop"}}
+                              //);  
+                            }; //SEMI-COLON IS OK HERE
                       });
 
                       google.load("visualization", "1", {packages:["corechart"]});
