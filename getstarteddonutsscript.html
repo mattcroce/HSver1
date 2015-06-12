@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/slider
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,12 +24,8 @@
     <!-- jquery must occur before javascript in order for the carousel to function -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <!-- CDN CSS EXTERNAL -->
-    <!-- Bootstrap core CSS-->
-    <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
     <!-- Latest compiled and minified CSS-->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Optional theme -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -47,38 +33,18 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-    <!-- Custom styles for this template -->
-    <!-- <link href="bootstrap.css" rel="stylesheet"> -->
-    <!-- <link href="carousel.css" rel="stylesheet"> -->
-
     <!-- LOCAL CSS -->
     <!-- Bootstrap core CSS-->
     <link href="css/bootstrap.css" rel="stylesheet">
 
-    <!-- Latest compiled and minified CSS-->
-    <!--<link href="css/bootstrap-theme.min.css" rel="stylesheet">-->
-
-    <!-- Optional theme -->
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-
-    <!-- Latest compiled and minified JavaScript -->
-    <!--<script src="js/bootstrap.min.js"></script>-->
-
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
 
-    <!-- W3 SCHOOLS -->
-    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
-    
-    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
-
     <!--For Google Charts CSS.-->
-
     <link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
 
     <!--For Google Charts, load the AJAX API.-->
-
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
@@ -90,7 +56,6 @@
 
     //For Google Charts, callback that creates and populates a data table, instantiates a dashboard, a range slider and a pie chart, passes in the data and draws it.
     function drawDashboard() {
-    //function drawVisualization() {
     // Create and populate the data table.
       var data = google.visualization.arrayToDataTable([
         ['Plan Name', 'Premium', 'OOP Spending'],
@@ -98,80 +63,31 @@
         ['Example Plan #2',  5000,    500],
         ['Example Plan #3',  7000,    500]
         ]);
-
-<<<<<<< Updated upstream
-
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/slider
-=======
-
-
->>>>>>> origin/slider
->>>>>>> Stashed changes
-        // Create a dashboard.
-        var dashboard = new google.visualization.Dashboard(
-            document.getElementById('dashboard_div'));
-
-        // Create a range slider, passing some options
-                var donutRangeSlider = new google.visualization.ControlWrapper({
-                  'controlType': 'NumberRangeFilter',
-                  'containerId': 'filter_div',
-                  'options': {
-                    'filterColumnLabel': 'Premium'
-                  }
-                });
-
-        // Create a chart, passing some options 
-        var columnChart = new google.visualization.ChartWrapper({
-          'chartType': 'ColumnChart',
-          'containerId': 'chart_div',
-          'options': {
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
+    // Create a dashboard.
+      var dashboard = new google.visualization.Dashboard(
+      document.getElementById('dashboard_div'));
+    // Create a range slider, passing some options
+      var donutRangeSlider = new google.visualization.ControlWrapper({
+        'controlType': 'NumberRangeFilter',
+        'containerId': 'filter_div',
+        'options': {
+          'filterColumnLabel': 'OOP Spending'
+        }
+      });
+    // Create a chart, passing some options 
+      var columnChart = new google.visualization.ChartWrapper({
+        'chartType': 'ColumnChart',
+        'containerId': 'chart_div',
+        'options': {
             'width': 600,
             'height': 400,
             'isStacked': true,
             'title': 'Annual Healthcare Spending by Plan',
             'vAxis': {title: "Dollars"},
             'hAxis': {title: "Plan Name"},
-=======
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
-            'title': 'ANAL Healthcare Spending by Plan',
-            'vAxis': {title: "Dollars"}, isStacked: true,
-            'width': 600,
-            'height': 400,
-            'pieSliceText': 'value',
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
->>>>>>> origin/slider
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
             'legend': 'right'
           }
         });
-
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/slider
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
         // Establish dependencies, declaring that 'filter' drives 'pieChart',
         // so that the pie chart will only display entries that are let through
         // given the chosen slider range.
@@ -186,63 +102,9 @@
     </script>
 
   </head>
-<!-- NAVBAR ================================================== -->
-  <body>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
-    <div class="navbar-wrapper">
-      <div class="container">
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.html">HealthSage</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <!-- <li><a href="getstarted.html">Get Started</a></li> -->
-                <li><a href="learnmore.html">Learn More</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="clients.html">Clients</a></li>
-                <!--<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Follow</a></li>
-                    <li><a href="#">The</a></li>
-                    <li><a href="#">Sage</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">BOOM</a></li>
-                    <li><a href="#">BOO YA/a></li>
-                  </ul>
-                </li>-->
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
->>>>>>> origin/slider
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
+  <body>
+
     <div class="container marketing">
       <!-- Three columns of text below the carousel -->
       <div class="row"></div><!-- /.row -->
@@ -252,10 +114,6 @@
         <!-- FIRST COLUMN SECTION -->
         <div class="col-md-2"></div>
         <!-- SECOND COLUMN SECTION -->
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
             <div class="col-md-8 poop" id="planCompareTable">
               <table name="planCompare">
                   <tbody id="tdPlans">
@@ -268,7 +126,7 @@
                         <th>Coinsurance Percentage</th>
                         <th>HSA/FSA Contribution</th>
                     </tr>
-                    </tbody>
+                  </tbody>
               </table>
                           
               <button name="newPlan"> Add a plan to your calculator </button>
@@ -281,161 +139,25 @@
               <div id="planDataSubmit">
                 <br></br>
                 </br></br>          
-                <button id="medSpendSubmit" name="medSpendSubmit"> Submit </button>       
+                <button name="medSpendSubmit"> Submit </button>       
               </div>
-          <br></br>
+              <br></br>
 
           
                 <div id = "dashboard_div">                      
                   <div id = "filter_div"></div>
                   <div id="chart_div"></div> <!-- end chart_div --> 
                 </div> <!-- end dashboard_div --> 
-=======
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
-        <div class="col-md-8 poop" id="planCompareTable">
-          <table name="planCompare">
-              <tbody id="tdPlans">
-                <tr>
-                    <th>Plan Name</th>
-                    <th>Bi-Weekly Premium</th>
-                    <th>Annual Deductible</th>
-                    <th>Catastrophic Limit</th>
-                    <th>Copay Percentage</th>
-                    <th>Coinsurance Percentage</th>
-                    <th>HSA/FSA Contribution</th>
-                </tr>
-                </tbody>
-          </table>
-                          
-          <button name="newPlan"> Add a plan to your calculator </button>
-          <br></br>
-          <!--<button id="submitPlans"> Follow The Sage! </button>-->
-                      
-            <!--<div class="container-fluid">-->
-            <!--<div class="starter-template">-->
-            <!--<div class="col-md-6 col-md-offset-3">-->
-          <div id="planDataSubmit">
-            <br></br>
-            <p> Tell us how much you think you might spend on healthcare this year, not including your insurance premiums:</p></br>
-            <input type="textbox" name="medSpend" id="medSpend"/>
-            </br></br>          
-            <button id="medSpendSubmit" name="medSpendSubmit"> Submit </button>       
-          </div>
-          <br></br>
-          <div id = "dashboard_div">                      
-            <div id = "filter_div"></div>
-              <div id="chart_div">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-                <script type="text/javascript" language="javascript">
-                  $(document).ready(function () {
-                    $('button[name="newPlan"]').on('click', function(){
-                      var table = $('table[name="planCompare"]');
-                      var tdPlanName = $('<input />', {'class' : 'form-control formInput', 'type' : 'text', 'id' : 'tdPlanNameVal'});
-                      var tdPremium = $('<input />', {'class' : 'form-control formInput', 'type' : 'text', 'id' : 'tdPremiumVal'});
-                      var tdDeductible = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-                      var tdCatLim = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-                      var tdCopay = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-                      var tdCoinsure = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
-                      var tdHsaFsa = $('<input />', {'class' : 'form-control formInput', 'type' : 'text'});
 
-                      newRow(table,[tdPlanName, tdPremium, tdDeductible, tdCatLim, tdCopay, tdCoinsure, tdHsaFsa]);
-                                               
-                      function newRow($table,cols){
-                        $row = $('<tr/>');
-                        for(i=0; i<cols.length; i++){
-                          $col = $('<td/>');
-                          $col.append(cols[i]);
-                          $row.append($col);
-                          }
-                        $table.append($row);
-                                  
-
-                        };
-                        });
-                        });
-                      $(document).ready(function(){
-                        $('#medSpend').keypress(function(e){
-                          if(e.keyCode==13)
-                          $('#medSpendSubmit').click();
-                          });
-                          });
-
-                      //$("button#medSpendSubmit").click(function() {
-                        //      alert("Btn 1 Clicked");
-                          //    }); 
-                                    
-                      $("button#medSpendSubmit").click(function() {
-                        alert("Btn 1 Clicked");
-                        var inp = $('#medSpend').val();
-                        var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
-                          if(jQuery.trim(inp).length == 0) {
-                          var errMsgBlank
-                          errMsgBlank = "Cannot be blank. Please enter a number.";
-                          alert(errMsgBlank);
-                          } //DON'T PUT A SEMI-COLON HERE 
-                          else if(!(numberRegex.test(inp))) {
-                            var errMsgNum
-                            errMsgNum = "Must be a number. Please enter a number.";
-                            alert(errMsgNum);
-                            } //DON'T PUT A SEMI-COLON HERE 
-                            else if((jQuery.trim(inp).length > 0) && (numberRegex.test(inp))) {
-                              var data = google.visualization.arrayToDataTable([
-                              ['Plan Name', 'Premium', 'OOP Spending'],
-                              [$('#tdPlanNameVal').val(),  parseInt($('#tdPremiumVal').val()),    parseInt($("#medSpend").val())],
-                              ['UPMC Advantage Bronze',  3892.56,    parseInt($("#medSpend").val())],
-                              ['UPMC Advantage Silver',  4358.88,    parseInt($("#medSpend").val())]
-                              ]);
-                              
-                                      // Create a chart, passing some options 
-                              var columnChart = new google.visualization.ChartWrapper({
-                                'chartType': 'ColumnChart',
-                                'containerId': 'chart_div',
-                                'options': {
-                                  'title': 'ANALOGOUS Healthcare Spending by Plan',
-                                  'vAxis': {title: "Dollars"}, isStacked: true,
-                                  'width': 600,
-                                  'height': 400,
-                                  'pieSliceText': 'value',
-                                  'legend': 'right'
-                                }
-                              });
-                              // Create and draw the visualization.
-                              //new google.visualization.ColumnChart(document.getElementById('chart_div')).
-                              //draw(data,
-                              //{title:"Annual Healthcare Spending by Plan",
-                              //width:600, height:400,
-                              //vAxis: {title: "Dollars"}, isStacked: true,
-                              //hAxis: {title: "poop"}}
-                              //);  
-                            }; //SEMI-COLON IS OK HERE
-                      });
-
-                      google.load("visualization", "1", {packages:["corechart"]});
-                      google.setOnLoadCallback(drawDashboard);                         
-                </script> 
-              </div> <!-- end chart_div --> 
-          </div> <!-- end dashboard_div --> 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
->>>>>>> origin/slider
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
-        </div> <!-- end of SECOND COLUMN SECTION --> 
+        </div> <!-- end of col-md-8 poop --> 
         <!-- THIRD COLUMN SECTION -->
         <div class="col-md-2"></div>
       </div> <!-- End of "row featurette poop"-->
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
     </div> <!-- End of the container marketing -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script type="text/javascript" language="javascript">
+   
+      <script type="text/javascript">
         $(document).ready(function () {
           $('button[name="newPlan"]').on('click', function(){
             var table = $('table[name="planCompare"]');
@@ -449,73 +171,69 @@
 
             newRow(table,[tdPlanName, tdPremium, tdDeductible, tdCatLim, tdCopay, tdCoinsure, tdHsaFsa]);
                                      
-            function newRow($table,cols){
-              $row = $('<tr/>');
-              for(i=0; i<cols.length; i++){
-                $col = $('<td/>');
-                $col.append(cols[i]);
-                $row.append($col);
-                }
-              $table.append($row);        
-                  };
-                });
-              });
-      </script>
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-          <script type="text/javascript" language="javascript">               
-              $("button#medSpendSubmit").click(function() {
-                  // Create and draw the visualization.
-                  var wrapper = new google.visualization.ChartWrapper({
-                  'chartType': 'ColumnChart',
-                  'containerId': 'chart_div',
-                  'dataTable':  [['Plan Name', 'Premium', 'OOP Spending'],
-                                [ $('#tdPlanNameVal').val(),  parseInt($('#tdPremiumVal').val()),    250000],
-                                ['UPMC Advantage Bronze',  3892.56,    250000],
-                                ['UPMC Advantage Silver',  4358.88,    250000]]
-                  'options': {
-                    'width': 600,
-                    'height': 400,
-                    'isStacked': true,
-                    'title': 'Annual Healthcare Spending by Plan',
-                    'vAxis': {title: "Dollars"},
-                    'hAxis': {title: "Plan Name"},
-                    'legend': 'right'
-                          }
-                      })
-                  wrapper.draw; 
+                function newRow($table,cols){
+                  $row = $('<tr/>');
+                  for(i=0; i<cols.length; i++){
+                    $col = $('<td/>');
+                    $col.append(cols[i]);
+                    $row.append($col);
+                    }
+                  $table.append($row);        
+                      };
                     });
+                  });
+      
+            $('button[name="medSpendSubmit"]').on('click', function(){
+            // Create and populate the data table.
+              var data = google.visualization.arrayToDataTable([
+                ['Plan Name', 'Premium', 'OOP Spending'],
+                [ $('#tdPlanNameVal').val(),  parseInt($('#tdPremiumVal').val()),    250000],
+                ['UPMC Advantage Bronze',  3892.56,    250000],
+                ['UPMC Advantage Silver',  4358.88,    250000]
+                ]);
+            // Create a dashboard.
+              var dashboard = new google.visualization.Dashboard(
+              document.getElementById('dashboard_div'));
+            // Create a range slider, passing some options
+              var donutRangeSlider = new google.visualization.ControlWrapper({
+                'controlType': 'NumberRangeFilter',
+                'containerId': 'filter_div',
+                'options': {
+                  'filterColumnLabel': 'Premium'
+                }
+              });
+            // Create and draw the visualization.
+            var columnChart = new google.visualization.ChartWrapper({
+                'chartType': 'ColumnChart',
+                'containerId': 'chart_div',
+                'options': {
+                'width': 600,
+                'height': 400,
+                'isStacked': true,
+                'title': 'Annual Healthcare Spending by Plan',
+                'vAxis': {title: "Dollars"},
+                'hAxis': {title: "Plan Name"},
+                'legend': 'right'
+                    }
+                });
 
-            google.load("visualization", "1", {packages:["corechart"]});
-            google.setOnLoadCallback(drawDashboard);                         
-          </script>
+                  dashboard.bind(donutRangeSlider, columnChart);
+
+                  dashboard.draw(data);
+            
+              });
+          
+
+      </script> 
 
 
-
-
-=======
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
-      <footer>
-      <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>© 2014 HealthSage<!-- · <a href="#">Privacy</a> · <a href="#">Terms</a>--> · <a href="mailto:info@healthsage.info">info@healthsage.info</a>  · <a href="tel:4125326597">412.532.6597</a></p>
-      </footer>
-    </div> <!-- End of the container marketing -->
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
->>>>>>> origin/slider
-=======
->>>>>>> origin/slider
->>>>>>> Stashed changes
     <!-- Bootstrap core JavaScript - Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.js"></script>
+    <script src="http://getbootstrap.com/assets/js/vendor/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
   
 
 <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="23" style="font-weight:bold;font-size:23pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">500x500</text></svg></body></html>
