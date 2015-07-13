@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="pics/caduceus8.png">
+
+    <title>HealthSage</title>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jquery must occur before javascript in order for the carousel to function -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script src="jquery-ui-slider-pips.js" type="text/javascript"></script> 
+
+    <!-- Latest compiled and minified CSS-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Optional theme -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- LOCAL CSS -->
+    <!-- Bootstrap core CSS-->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <link href="jquery-ui-slider-pips.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="newtest.css" type="text/css">
+
+    <!--For Google Charts CSS.-->
+    <link href="http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" href="css/jquery.slider.min.css">-->
+
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <!--For Google Charts, load the AJAX API.-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!--<script type="text/javascript" src="js/main.js"></script>-->
+    <!--<script type="text/javascript" src="js/jquery.slider.min.js"></script>-->
+
+    <script type="text/javascript">
+      function drawVisualization() {
+  // Create and populate the data table.
+  var data = google.visualization.arrayToDataTable([
+    ['Plan Name', 'Premium', 'OOP Spending'],
+    ['Example Plan #1',  3000,    500],
+    ['Example Plan #2',  5000,    500],
+    ['Example Plan #3',  7000,    500]
+  ]);
+  // Create and draw the visualization.
+  new google.visualization.ColumnChart(document.getElementById('chart_div')).
+      draw(data,
+           {title:"Annual Healthcare Spending by Plan",
+            width:600, height:400,
+            vAxis: {title: "Dollars"}, isStacked: true,
+            hAxis: {title: "Plan Name"}}
+      );
+}
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawVisualization);
+      
+      
+      
+      
+	  function updateTextInput(val) {
+	      document.getElementById('sliderValue').value=val; 
+	    }
+
+
+
+</script>
+
+
+
+<style>
+#circles-slider.ui-slider {
+  border-radius: 20px;
+  background: #434d5a;
+  border: none;
+  height: 10px;
+  margin: 1em 4em 4em; }
+                    
+#circles-slider .ui-slider-handle {
+  border-radius: 23px;
+  height: 23px;
+  width: 23px;
+  top: -7px;
+  margin-left: -11px;
+  border: 2px solid #fffaf7; }
+                    
+#circles-slider .ui-slider-pip {
+  top: 3px; }
+                    
+  #circles-slider .ui-slider-pip .ui-slider-line {
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    margin-left: -2px;
+    background: #fffaf7; }
+                    
+  #circles-slider .ui-slider-pip.ui-slider-pip-last,
+  #circles-slider .ui-slider-pip.ui-slider-pip-first {
+    top: -7px; }
+                    
+    #circles-slider .ui-slider-pip.ui-slider-pip-last .ui-slider-line,
+    #circles-slider .ui-slider-pip.ui-slider-pip-first .ui-slider-line {
+      display: none; }
+                    
+    #circles-slider .ui-slider-pip.ui-slider-pip-last .ui-slider-label,
+    #circles-slider .ui-slider-pip.ui-slider-pip-first .ui-slider-label {
+      margin: 0; }
+                    
+  #circles-slider .ui-slider-pip.ui-slider-pip-first .ui-slider-label {
+    left: -2em;
+    text-align: right; }
+                    
+  #circles-slider .ui-slider-pip.ui-slider-pip-last .ui-slider-label {
+    left: 2em;
+    text-align: left; }
+                    
+  #circles-slider .ui-slider-pip.ui-slider-pip-selected-initial {
+    font-weight: normal; }
+                    
+  #circles-slider .ui-slider-pip.ui-slider-pip-selected {
+    font-weight: bold; }
+                    
+  #circles-slider .ui-slider-pip.ui-slider-pip-selected,
+  #circles-slider .ui-slider-pip.ui-slider-pip-selected-initial {
+    color: #434d5a; }
+</style>
+
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="starter-template">
+		<div class="col-md-6 col-md-offset-3">
+			<br/>
+			<div id="planCompareNumber">
+				<p> How many insurance plans would you like to analyze?</p>
+				<br/>
+				<input type="text" id="planCompareNumberValue" placeholder="Ex: 3">   <button id="planCompareNumberSubmit" class="submit">Submit</button>
+			</div>
+			<br/>
+			
+			
+			<div id="planCompareTableDiv">
+		              	<table name="planCompare" id="planCompareTable">
+		                    <tr>
+		                        <th id="thPlanName" data-toggle="tooltip" data-placement="top" title="What are the names of the plans you want to analyze?">Plan Name</th>
+		                        <th id="thPlanPremium" data-toggle="tooltip" data-placement="top" title="What are the monthly premiums for the plans you are analyzing?">Monthly Premium</th>
+		                        <th id="thPlanDeductible" data-toggle="tooltip" data-placement="top" title="What is the annual deductible for each of the plans you want to analyze?">Annual Deductible</th>
+		                        <th id="thPlanCopay" data-toggle="tooltip" data-placement="top" title="What is the copay percentage for each of the plans you want to analyze?">Copay Percentage</th>
+		                    </tr>
+		                   <tbody id="tdPlans">
+		                   </tbody>
+		              	</table>              
+            		</div> <!-- end of planCompareTableDiv-->
+            		<div id="planSubDiv"></div>
+			<br/>
+			<div id="chartSliderContainer">
+				<div id="chart_div"></div>
+	              		<br>
+	              		<div id="sliderValueDiv"></div>
+	              		</br>
+		              	<div id="circles-slider"></div>
+		              	<br>
+		              	<input id="sliderValue" name="sliderValueInput" type="text" value="0" onchange="updateTextInput()"> </input>
+		              	</div>
+		              	<br></br>
+		
+		              	<script>
+		              	
+		              	</script>
+			</div><!-- end of chartSliderContainer -->
+		</div><!-- end of col-md-6 col-md-offset-3 -->
+		</div><!-- end of starter-template -->
+	</div><!-- end of container-fluid -->
+
+<script type="text/javascript" language="javascript">
+	var planNames = [];
+	var planPremiums =[];
+	var planDeductibles = [];
+	var planCopays = [];
+	var oopSpends = [];
+	
+	$(document).ready(function(){
+	    $('[data-toggle="tooltip"]').tooltip();   
+	});
+	
+	//Allows hitting enter to function as a mouse click
+	//on the first button the user sees	
+	$(document).ready(function() {
+		$('#planCompareNumberValue').keypress(function(e) {
+		if(e.keyCode==13)
+		$('#planCompareNumberSubmit').click();
+		});
+		});			
+	$(document).ready(function () {
+		$('#planCompareNumberSubmit').click (function() {
+			var howManyPlans = $('#planCompareNumberValue').val();
+			var numberRegex = /^[+-]?\d+(\.\d+)?([eE][+-]?\d+)?$/;
+			if(jQuery.trim(howManyPlans).length == 0) {
+				var errMsgBlank;
+				errMsgBlank = "Cannot be blank. Please enter a number.";
+				alert(errMsgBlank);
+			}
+			else if(!(numberRegex.test(howManyPlans))) {
+				var errMsgNum;
+				errMsgNum = "Must be a number. Please enter a number.";
+				alert(errMsgNum);
+			}
+			else if((jQuery.trim(howManyPlans).length > 0) && (numberRegex.test(howManyPlans))) {
+				//FADE OUT INITIAL INPUT AND APPEND THE NECESSARY NUMBER OF ROWS/INPUTS
+				$("#planCompareNumber").fadeOut( 'slow'); //GOOD
+					
+				for(var i=0; i<howManyPlans; i++){
+					$('<div><input type="text" class="planName" placeholder="Ex: Aetna Gold 1600" name="dynamic[]" /></div>').fadeIn('slow').appendTo('#thPlanName');
+					$('<div><input type="text" class="planPremium" placeholder="Ex: 250" name="dynamic[]" /></div>').fadeIn('slow').appendTo('#thPlanPremium');
+					$('<div><input type="text" class="planDeductible" placeholder="Ex: 3000" name="dynamic[]" /></div>').fadeIn('slow').appendTo('#thPlanDeductible');
+					$('<div><input type="text" class="planCopay" placeholder="Ex: 15" name="dynamic[]" /></div>').fadeIn('slow').appendTo('#thPlanCopay');
+					}
+
+			//FADE IN NEW INPUTS AND SUBMIT BUTTON 
+			$("#planCompareTable").delay( 800 ).fadeIn( 'slow' );//GOOD
+			$('<div><br/><input name="submit" type="button" id="planSub" class="submit" value="Submit" /><br/><br/></div>').fadeIn('slow').appendTo('#planSubDiv');//GOOD
+			$("#planSubDiv").delay( 800 ).fadeIn( 'slow' );//GOOD
+			
+			//WHEN SUBMIT IS CLICKED FADE OUT THE INPUTS AND PUSH VALUES TO ARRAYS
+			$('#planSub').click (function() {
+				$("#planSub").fadeOut('slow');//GOOD
+				$("#planSubDiv").fadeOut('slow');//GOOD
+				$("#planCompareTable").fadeOut('slow');//GOOD
+				$.each($('.planName'),function() {
+					planNames.push($(this).val());
+				});//GOOD
+				$.each($('.planPremium'), function() {
+					planPremiums.push($(this).val());
+				});//GOOD
+				$.each($('.planDeductible'), function() {
+					planDeductibles.push($(this).val());
+				});//GOOD
+				$.each($('.planCopay'), function() {
+					planCopays.push($(this).val());
+				});//GOOD
+				
+				//FOR EACH PLAN PUSH AN INITAL 5000 AMOUNT INTO THE OOPSPENDS ARRAY
+				//FOR USE IN CHART BELOW
+				//!!!!!!!!
+				//for(var i=0; i<howManyPlans; i++){
+				//	oopSpends.push(100);
+				//}//GOOD
+
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Plan Name');
+				data.addColumn('number', 'Premiums');
+				data.addColumn('number', 'OOP Spending');
+				var len=planNames.length;
+				for(i=0; i<len; i++) {
+					nameVal = parseFloat($.trim(planNames)[i][1]);
+					premiumVal = parseFloat(planPremiums[i]*12);
+					oopVal = parseFloat(oopSpends[i]);
+    					data.addRow([planNames[i], premiumVal, oopVal]);
+    					}
+				//console.log(oopVal);
+				
+		              	// Create and draw the visualization.
+		              	new google.visualization.ColumnChart(document.getElementById('chart_div')).
+		                draw(data,
+		                     {title:"Annual Healthcare Spending by Plan",
+		                      width:700, height:500,
+		                      vAxis: {title: "Dollars"}, isStacked: true,
+		                      hAxis: {title: "Plan Name"}}
+		                    );
+				
+				$("#chartSliderContainer").delay(800).fadeIn('slow');//GOOD
+				
+				var slide=document.getElementById('sliderValue');
+				var div=document.getElementById('sliderValueDiv');
+				div.innerHTML = "Out of Pocket Amount: " + slide.value;
+				
+				$("#circles-slider").slider({
+	                             max: 30000,
+	                             value: 0,
+	                             step: 50,
+	                             animate:"slow"
+	                            })
+		
+			    .slider("pips")
+		
+                            .on("slidechange", function( e, ui ) {
+                            $("#sliderValue").val(ui.value);
+                            	oopSpends.length = 0;
+			    	var D4 = ui.value;
+			    	console.log(D4);
+        		    	
+        		    	var slide=document.getElementById('sliderValue');
+				var div=document.getElementById('sliderValueDiv');
+				div.innerHTML = "Out of Pocket Amount: " + slide.value;
+        		    	
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Plan Name');
+				data.addColumn('number', 'Premiums');
+				data.addColumn('number', 'OOP Spending');
+				
+				for(i=0; i<len; i++) {
+					if (D4 > planDeductibles[i]){
+					var thisDeduct = parseFloat(planDeductibles[i]);
+					thisCopay = parseFloat(planCopays[i])/100;
+					var OOPSpend = ((D4-(thisDeduct))*(thisCopay))+thisDeduct;
+					} else {
+					var OOPSpend = D4;
+					}
+					oopSpends.push(OOPSpend);
+					nameVal = parseFloat(planNames[i]);
+					premiumVal = parseFloat(planPremiums[i]*12);
+					oopVal = parseFloat(oopSpends[i]);
+    					data.addRow([planNames[i], premiumVal, oopVal]);
+    					}
+				console.log(oopVal);
+				
+		              	// Create and draw the visualization.
+		              	new google.visualization.ColumnChart(document.getElementById('chart_div')).
+		                draw(data,
+		                     {title:"Annual Healthcare Spending by Plan",
+		                      width:700, height:500,
+		                      vAxis: {title: "Dollars"}, isStacked: true,
+		                      hAxis: {title: "Plan Name"}}
+		                    );
+			     });	
+			});
+		}	
+	});
+	});
+	
+			
+</script>
+		
+
+
+</html>
