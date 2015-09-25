@@ -4085,9 +4085,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     border-radius: 4px;
   }
 }
+/* Controls the positioning of HealthSage title in the navbar*/
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
+  }
+/*In which Dan tries to make items centered. Good luck and Godspeed!*/
+@media (min-width: 768px) {
+  .center {
+    margin: auto;
+    width: 90%;
+    border:0px solid #8AC007;
+    padding: 25px;
   }
 }
 .navbar-collapse {
@@ -4185,7 +4194,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
+  /*Controls padding for the navbar box.*/
+  padding: 15px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -4199,7 +4209,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    /*Controls the padding for the area around the "HealthSage" title in the navbar.*/
+    margin-left: 50px ;
   }
 }
 .navbar-toggle {
@@ -4264,8 +4275,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar-nav {
-    float: left;
+    /*Controls the padding and word placement on the navbar "Home, About, Learn More, etc."*/
+    float: right;
     margin: 0;
+    margin-right: 100px;
   }
   .navbar-nav > li {
     float: left;
